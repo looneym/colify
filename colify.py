@@ -63,3 +63,7 @@ class Colify():
         for i in range(0, self.max_rows() -1 , 1):
             line = self.build_line(i)   
             print(line[0].format(*line[1]))
+
+    def colify(self):
+        self.print_headers()
+        self.print_body()        
