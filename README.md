@@ -18,10 +18,8 @@ countries['france'] = ["paris", "lyon", "toulouse", "nantes"]
 
 c = Colify(countries)
 c.colify()
-# Output:
-# |    madrid |      rome |     paris |
-# | barcelona |  florence |      lyon |
-# |    bilbao |     milan |  toulouse |
-# |    Malaga |    venice |    nantes |
-# |           |   palermo |           |
 ```
+
+Output:
+
+![image](https://user-images.githubusercontent.com/12705417/30010822-8f8aee8e-912a-11e7-97b5-351379385c52.png)
