@@ -57,7 +57,3 @@ def test_print_body(capsys):
 	c.print_body()
 	out, err = capsys.readouterr()
 	assert(out == spec_output)
-
-
-
-
