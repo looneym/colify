@@ -27,7 +27,7 @@ class Colify():
         column_widths = []
         for column in self.columns:
             for word in column:
-                column_widths.append(len(word))
+                column_widths.append(len(str(word)))
         return max(column_widths)        
 
     def output_string(self):
