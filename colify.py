@@ -19,15 +19,15 @@ class Colify():
 
     def max_rows(self):
         column_lengths = []
-        for column in self.user_data.values():
+        for column in self.columns:
             column_lengths.append(len(column))
         return max(column_lengths)   
 
     def max_column_width(self):
         column_widths = []
         for column in self.columns:
-            for row in column:
-                column_widths.append(len(row))
+            for word in column:
+                column_widths.append(len(word))
         return max(column_widths)        
 
     def output_string(self):
@@ -47,11 +47,12 @@ class Colify():
 
     def build_line(self, i):
         values = []
-        for column in self.user_data.values():
+        for column in self.columns:
             try:
                 values.append(column[i])
             except IndexError:
-                pass    
+                # empty value needed to preserve formatting
+                values.append('')    
         template = '| '         
         for value in values:   
             template += self.output_string()    
