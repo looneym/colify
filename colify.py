@@ -1,11 +1,3 @@
-spain = ["madrid", "barcelona", "bilbao", "Malaga"]
-italy = ["rome", "florence", "milan", "venice", "palermo", "padua"]
-france = ["paris", "lyon", "toulouse", "nantes"]
-countries = {}
-countries['spain'] = spain
-countries['italy'] = italy
-countries['france'] = france
-
 class color:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
@@ -70,11 +62,3 @@ class Colify():
         for i in range(0, self.max_rows() -1 , 1):
             line = self.build_line(i)   
             print(line[0].format(*line[1]))
-
-c = Colify(countries)
-c.print_headers() 
-c.print_body()
-
-
-
-
