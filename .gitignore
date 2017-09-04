@@ -4,3 +4,4 @@
 /dist/
 /colify/__pycache__/
 /test/__pycache__/
+colify.egg-info/
