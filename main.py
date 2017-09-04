@@ -23,10 +23,7 @@ class Colify():
     def __init__(self, user_data):
         self.user_data = user_data
         self.headers = user_data.keys()
-        self.columns = user_data.values()
-
-    def total_width(self):
-        return len(self.columns) * self.max_width()      
+        self.columns = user_data.values()  
 
     def max_rows(self):
         column_lengths = []
@@ -34,7 +31,7 @@ class Colify():
             column_lengths.append(len(column))
         return max(column_lengths)   
 
-    def max_width(self):
+    def max_column_width(self):
         column_widths = []
         for column in self.columns:
             for row in column:
@@ -44,15 +41,9 @@ class Colify():
     def output_string(self):
         s= '{'
         s+=':>'
-        s+=str(self.max_width())
+        s+=str(self.max_column_width())
         s+='} | '
         return s
-
-    def print_line(self):
-        output =""
-        for i in range(0, self.total_width(), 1):
-            output += ' '
-        print output
 
     def print_headers(self):
         output = '| '
@@ -60,20 +51,25 @@ class Colify():
             output += self.output_string()
         print color.UNDERLINE \
             + output.format(*[ word.upper() for word in self.headers]) \
-            + color.END
+            + color.END      
+
+    def build_line(self, i):
+        values = []
+        for column in self.user_data.values():
+            try:
+                values.append(column[i])
+            except IndexError:
+                pass    
+        template = '| '         
+        for value in values:   
+            template += self.output_string()    
+        line = [template, values]   
+        return line       
         
     def print_body(self):      
         for i in range(0, self.max_rows() -1 , 1):
-            output = '| '
-            values = []
-            for column in self.user_data.values():
-                try:
-                    values.append(column[i])
-                except IndexError:
-                    pass     
-            for value in values:   
-                output += self.output_string()     
-            print output.format(*values)
+            line = self.build_line(i)   
+            print line[0].format(*line[1])
 
 c = Colify(countries)
 c.print_headers() 
