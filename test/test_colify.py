@@ -1,5 +1,7 @@
-import pytest
+import sys
+sys.path.append('../colify')
 
+import pytest
 from colify import Colify
 
 spain = ["madrid", "barcelona", "bilbao", "Malaga"]
