@@ -9,7 +9,7 @@ Print a dictionary of arrays as vertical columns in the terminal
 ### Usage
 
 ```python
-from colify import Colify
+from colify.colify import Colify
 
 countries = {}
 countries['spain'] = ["madrid", "barcelona", "bilbao", "Malaga"]
