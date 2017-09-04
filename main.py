@@ -49,9 +49,9 @@ class Colify():
         output = '| '
         for header in self.headers:
             output += self.output_string()
-        print color.UNDERLINE \
+        print(color.UNDERLINE \
             + output.format(*[ word.upper() for word in self.headers]) \
-            + color.END      
+            + color.END)     
 
     def build_line(self, i):
         values = []
@@ -69,7 +69,7 @@ class Colify():
     def print_body(self):      
         for i in range(0, self.max_rows() -1 , 1):
             line = self.build_line(i)   
-            print line[0].format(*line[1])
+            print(line[0].format(*line[1]))
 
 c = Colify(countries)
 c.print_headers() 
