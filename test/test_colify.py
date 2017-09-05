@@ -1,5 +1,6 @@
 import sys
 sys.path.append('../colify')
+from collections import OrderedDict
 
 import pytest
 from colify import Colify
@@ -7,7 +8,7 @@ from colify import Colify
 spain = ["madrid", "barcelona", "bilbao", "Malaga"]
 italy = ["rome", "florence", "milan", "venice", "palermo", "padua"]
 france = ["paris", "lyon", "toulouse", "nantes"]
-countries = {}
+countries = OrderedDict()
 countries['spain'] = spain
 countries['italy'] = italy
 countries['france'] = france
